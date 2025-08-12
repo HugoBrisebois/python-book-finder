@@ -18,6 +18,7 @@ def get_books(book, limit=100):
         print(f"Retrieval failed with status code: {response.status_code}")
         return None
 
+
 # Main program
 print("Welcome To Your Book Recommendation Center")
 print("-" * 40)
@@ -32,13 +33,15 @@ except ValueError:
 
 books_found = get_books(book, limit)
 
+
+
 if books_found:
     total_results = books_found['numFound']
     displayed_results = len(books_found['docs'])
     
     print(f"\nFound {total_results} total results, displaying {displayed_results}:")
     print("-" * 40)
-    
+    # Add a pause every 10 results for readability (optional)
     # Display all results (or limited results based on user input)
     for i, book in enumerate(books_found['docs']):  # Show all results
         print(f"\n{i+1}. Title: {book.get('title', 'N/A')}")
@@ -50,6 +53,9 @@ if books_found:
         # Add a pause every 10 results for readability (optional)
         if (i + 1) % 10 == 0 and i < len(books_found['docs']) - 1:
             input("\nPress Enter to see more results...")
+    
+    if (i + 1) % 10 == 0 and i < len(books_found['docs']) - 1:
+        input("\nPress Enter to see more results...")
     
 else:
     print("No books found or there was an error with the request.")
