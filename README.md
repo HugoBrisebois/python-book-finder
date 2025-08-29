@@ -10,7 +10,7 @@
 
 ### Using the Executable
 
-1. Download the executable from the `dist` folder (or from your distribution source).
+1. Download the executable from the source code.
 2. Double-click the `.exe` file to run the application. No Python installation is required.
 
 ### Building the Executable Yourself
